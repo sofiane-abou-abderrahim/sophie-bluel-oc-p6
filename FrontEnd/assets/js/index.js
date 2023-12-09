@@ -24,8 +24,9 @@ async function generateWorks() {
     // access the image of each work to configure its source and its alt attributes
     img.src = work.imageUrl;
     img.alt = work.title;
-
     const figcaption = document.createElement('figcaption');
+    // added title to figcaption as its text
+    figcaption.innerText = work.title;
 
     // appended each element to its parent
     figure.appendChild(img);
