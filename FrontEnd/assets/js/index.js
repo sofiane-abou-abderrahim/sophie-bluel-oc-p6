@@ -13,4 +13,7 @@ await getWorks();
 async function generateWorks() {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
+  console.log(works);
 }
+
+generateWorks();
