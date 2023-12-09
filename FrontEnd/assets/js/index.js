@@ -13,7 +13,7 @@ await getWorks();
 async function generateWorks() {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
-  console.log(works);
+  // console.log(works);
   works.forEach(work => {
     // retrieve the DOM element that will host the works
     const gallery = document.querySelector('.gallery');
@@ -25,7 +25,7 @@ async function generateWorks() {
     img.src = work.imageUrl;
     img.alt = work.title;
     const figcaption = document.createElement('figcaption');
-    // added title to figcaption as its text
+    // added work title to figcaption as its text
     figcaption.innerText = work.title;
 
     // appended each element to its parent
