@@ -16,16 +16,23 @@ async function generateWorks() {
   console.log(works);
   works.forEach(work => {
     // retrieve the DOM element that will host the works
-    const sectionGallery = document.querySelector('.gallery');
+    const gallery = document.querySelector('.gallery');
 
     // create dedicated elements for each work
     const figure = document.createElement('figure');
     const img = document.createElement('img');
+    // access the image of each work to configure its source and its alt attributes
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
     const figcaption = document.createElement('figcaption');
 
     // appended each element to its parent
     figure.appendChild(img);
     figure.appendChild(figcaption);
+
+    // attach the figure tag to the gallery div
+    gallery.appendChild(figure);
   });
 }
 
