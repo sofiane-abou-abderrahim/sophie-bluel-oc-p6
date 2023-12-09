@@ -22,6 +22,10 @@ async function generateWorks() {
     const figure = document.createElement('figure');
     const img = document.createElement('img');
     const figcaption = document.createElement('figcaption');
+
+    // appended each element to its parent
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
   });
 }
 
