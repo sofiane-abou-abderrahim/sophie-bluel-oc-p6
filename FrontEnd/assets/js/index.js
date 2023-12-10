@@ -66,7 +66,13 @@ generateWorks();
 async function generateCategories() {
   // store http api response in a constant in a JSON format
   const categories = await getCategories();
-  console.log(categories);
+  // console.log(categories);
+
+  // iterate through the categories list to create DOM elements for each category
+  categories.forEach(category => {
+    // retrieve the DOM element that will host the works
+    const portfolioTitle = document.querySelector('#portfolio h2');
+  });
 }
 
 generateCategories();
