@@ -71,7 +71,8 @@ async function generateCategories() {
   // iterate through the categories list to create DOM elements for each category
   categories.forEach(category => {
     // retrieve the DOM element that will host categories buttons
-    const portfolioTitle = document.querySelector('#portfolio h2');
+    const filter = document.querySelector('.filter');
+    console.log(filter);
 
     // create dedicated elements for each categories button
     const categoriesBtn = document.createElement('button');
