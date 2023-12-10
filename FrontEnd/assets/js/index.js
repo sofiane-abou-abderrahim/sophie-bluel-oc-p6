@@ -1,3 +1,5 @@
+/**********Functions to retrieve the gallery and categories*********/
+
 /**
  *
  * @returns function that retrieves works from the API
@@ -11,7 +13,21 @@ async function getWorks() {
 await getWorks();
 
 /**
- * @generator // function to generate tasks and display them on the website
+ *
+ * @returns function that retrieves categories from the API
+ */
+
+async function getCategories() {
+  const response = await fetch('http://localhost:5678/api/categories');
+  return await response.json();
+}
+// console.log(await getCategories());
+await getCategories();
+
+/**********Functions to generate the gallery and categories*********/
+
+/**
+ * @generator function to generate tasks and display them on the website
  */
 
 async function generateWorks() {
