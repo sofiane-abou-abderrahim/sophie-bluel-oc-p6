@@ -58,3 +58,12 @@ async function generateWorks() {
 }
 
 generateWorks();
+
+/**
+ * @generator function to generate categories and display them on the website
+ */
+
+async function generateCategories() {
+  // store http api response in a constant in a JSON format
+  const categories = await getCategories();
+}
