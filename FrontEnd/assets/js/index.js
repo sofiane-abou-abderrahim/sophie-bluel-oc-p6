@@ -3,7 +3,7 @@
 // retrieve the DOM element that will host the works
 const gallery = document.querySelector('.gallery');
 
-/**********Functions to retrieve the gallery and categories*********/
+/**********Functions to retrieve the gallery and categories from the API*********/
 
 /**
  *
