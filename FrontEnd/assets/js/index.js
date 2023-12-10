@@ -83,7 +83,7 @@ async function generateCategories() {
 
     // append each categories button to its parent
     filter.appendChild(categoriesBtn);
-    console.log(filter);
+    // console.log(filter);
   });
 }
 
