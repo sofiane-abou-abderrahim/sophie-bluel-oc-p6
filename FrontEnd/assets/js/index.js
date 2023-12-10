@@ -126,8 +126,20 @@ async function filterCategories() {
       // retrieve filter button id upon a click on a selected button
       const filterButtonId = event.target.id;
 
-      // delete all works in the gallery upon each filter button
+      // delete all works in the gallery upon each filter button to refresh the page and make it interactive
       gallery.innerHTML = '';
+
+      // logic for filtering buttons
+      if (filterButtonId !== '0') {
+        const filteredWorks = works.filter(work => {
+          return work.categoryId == filterButtonId;
+        });
+        filteredWorks.forEach(work => {
+          generateWorks(work);
+        });
+      } else {
+        displayWorks();
+      }
     });
   });
 }
