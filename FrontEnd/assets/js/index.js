@@ -109,9 +109,10 @@ async function filterCategories() {
     // add an event listener on each filter button
     filterButton.addEventListener('click', event => {
       // retrieve filter button id upon a click on a selected button
-      // console.log(event.target.id);
       const filterButtonId = event.target.id;
-      console.log(filterButtonId);
+
+      // delete all works in the gallery upon each filter button
+      gallery.innerHTML = '';
     });
   });
 }
