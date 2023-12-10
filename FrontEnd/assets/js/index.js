@@ -74,17 +74,19 @@ async function generateCategories() {
     const filter = document.querySelector('.filter');
 
     // create dedicated elements for each categories button
-    const categoriesBtn = document.createElement('button');
+    const btnFilter = document.createElement('button');
     // insert id and name content to each categories button
-    categoriesBtn.innerText = category.name.toUpperCase();
-    categoriesBtn.id = category.id;
+    btnFilter.innerText = category.name.toUpperCase();
+    btnFilter.id = category.id;
     // added class button
-    categoriesBtn.classList.add('button');
+    btnFilter.classList.add('button');
 
     // append each categories button to its parent
-    filter.appendChild(categoriesBtn);
+    filter.appendChild(btnFilter);
     // console.log(filter);
   });
 }
 
 generateCategories();
+
+/*********function to filter the gallery by project category**********/
