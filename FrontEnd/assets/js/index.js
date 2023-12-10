@@ -17,7 +17,7 @@ await getWorks();
 async function generateWorks() {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
-  console.log(works);
+  // console.log(works);
   works.forEach(work => {
     // retrieve the DOM element that will host the works
     const gallery = document.querySelector('.gallery');
