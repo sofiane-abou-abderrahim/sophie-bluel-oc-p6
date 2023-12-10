@@ -66,4 +66,7 @@ generateWorks();
 async function generateCategories() {
   // store http api response in a constant in a JSON format
   const categories = await getCategories();
+  console.log(categories);
 }
+
+generateCategories();
