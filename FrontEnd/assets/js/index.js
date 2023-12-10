@@ -2,6 +2,8 @@
 
 // retrieve the DOM element that will host the works
 const gallery = document.querySelector('.gallery');
+// retrieve the DOM element that will host categories buttons
+const filter = document.querySelector('.filter');
 
 /**********Functions to retrieve the gallery and categories from the API*********/
 
@@ -15,7 +17,7 @@ async function getWorks() {
   return await response.json();
 }
 // console.log(await getWorks());
-// await getWorks();
+await getWorks();
 
 /**
  *
@@ -27,7 +29,7 @@ async function getCategories() {
   return await response.json();
 }
 // console.log(await getCategories());
-// await getCategories();
+await getCategories();
 
 /**********Functions to generate the gallery and categories*********/
 
@@ -35,61 +37,74 @@ async function getCategories() {
  * @generator function to generate tasks and display them on the website
  */
 
-async function generateWorks() {
-  // store http api response in a constant in a JSON format
-  const works = await getWorks();
-  // console.log(works);
-  works.forEach(work => {
-    // create dedicated elements for each work
-    const figure = document.createElement('figure');
-    const img = document.createElement('img');
-    // access the image of each work to configure its source and its alt attributes
-    img.src = work.imageUrl;
-    img.alt = work.title;
-    const figcaption = document.createElement('figcaption');
-    // added work title to figcaption as its text
-    figcaption.innerText = work.title;
+function generateWorks(work) {
+  // create dedicated elements for each work
+  const figure = document.createElement('figure');
+  const img = document.createElement('img');
+  // access the image of each work to configure its source and its alt attributes
+  img.src = work.imageUrl;
+  img.alt = work.title;
+  const figcaption = document.createElement('figcaption');
+  // added work title to figcaption as its text
+  figcaption.innerText = work.title;
 
-    // appended each element to its parent
-    figure.appendChild(img);
-    figure.appendChild(figcaption);
+  // appended each element to its parent
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
 
-    // attach the figure tag to the gallery div
-    gallery.appendChild(figure);
-  });
+  // attach the figure tag to the gallery div
+  gallery.appendChild(figure);
 }
-
-generateWorks();
 
 /**
  * @generator function to generate categories and display them on the website
  */
 
-async function generateCategories() {
+function generateCategories(category) {
+  // create dedicated elements for each categories button
+  const btnFilter = document.createElement('button');
+  // insert id and name content to each categories button
+  btnFilter.innerText = category.name.toUpperCase();
+  btnFilter.id = category.id;
+  // added class button
+  btnFilter.classList.add('button');
+
+  // append each categories button to its parent
+  filter.appendChild(btnFilter);
+  // console.log(filter);
+}
+
+/**********Functions to display works and categories**********/
+
+/**
+ * @async display works in the DOM
+ */
+
+async function displayWorks() {
+  // store http api response in a constant in a JSON format
+  const works = await getWorks();
+  // console.log(works);
+
+  works.forEach(work => {
+    generateWorks(work);
+  });
+}
+await displayWorks();
+
+/**
+ * @async display categories in the DOM
+ */
+
+async function displayCategories() {
   // store http api response in a constant in a JSON format
   const categories = await getCategories();
   // console.log(categories);
 
-  // iterate through the categories list to create DOM elements for each category
   categories.forEach(category => {
-    // retrieve the DOM element that will host categories buttons
-    const filter = document.querySelector('.filter');
-
-    // create dedicated elements for each categories button
-    const btnFilter = document.createElement('button');
-    // insert id and name content to each categories button
-    btnFilter.innerText = category.name.toUpperCase();
-    btnFilter.id = category.id;
-    // added class button
-    btnFilter.classList.add('button');
-
-    // append each categories button to its parent
-    filter.appendChild(btnFilter);
-    // console.log(filter);
+    generateCategories(category);
   });
 }
-
-generateCategories();
+await displayCategories();
 
 /*********function to filter the gallery by project category**********/
 
@@ -116,5 +131,4 @@ async function filterCategories() {
     });
   });
 }
-
-filterCategories();
+await filterCategories();
