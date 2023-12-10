@@ -78,6 +78,8 @@ async function generateCategories() {
     // insert id and name content to each categories button
     categoriesBtn.innerText = category.name.toUpperCase();
     categoriesBtn.id = category.id;
+    // added class button
+    categoriesBtn.classList.add('button');
 
     // append each categories button to its parent
     filter.appendChild(categoriesBtn);
