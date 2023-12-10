@@ -107,7 +107,9 @@ async function filterCategories() {
     // add an event listener on each filter button
     filterButton.addEventListener('click', event => {
       // retrieve filter button id upon a click on a selected button
-      console.log(event.target.id);
+      // console.log(event.target.id);
+      const filterButtonId = event.target.id;
+      console.log(filterButtonId);
     });
   });
 }
