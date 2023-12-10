@@ -90,3 +90,17 @@ async function generateCategories() {
 generateCategories();
 
 /*********function to filter the gallery by project category**********/
+
+/**
+ * @event clicking filter the tasks according to the selected filter upon clicking on an element in the category menu
+ */
+
+async function filterCategories() {
+  const works = await getWorks();
+  // console.log(works);
+
+  const filterButtons = document.querySelectorAll('.filter .button');
+  console.log(filterButtons);
+}
+
+filterCategories();
