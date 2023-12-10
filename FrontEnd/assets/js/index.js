@@ -70,8 +70,13 @@ async function generateCategories() {
 
   // iterate through the categories list to create DOM elements for each category
   categories.forEach(category => {
-    // retrieve the DOM element that will host the works
+    // retrieve the DOM element that will host categories buttons
     const portfolioTitle = document.querySelector('#portfolio h2');
+
+    // create dedicated elements for each categories button
+    const categoriesBtn = document.createElement('button');
+    categoriesBtn.innerText = category.name.toUpperCase();
+    console.log(categoriesBtn);
   });
 }
 
