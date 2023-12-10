@@ -72,14 +72,16 @@ async function generateCategories() {
   categories.forEach(category => {
     // retrieve the DOM element that will host categories buttons
     const filter = document.querySelector('.filter');
-    console.log(filter);
 
     // create dedicated elements for each categories button
     const categoriesBtn = document.createElement('button');
     // insert id and name content to each categories button
     categoriesBtn.innerText = category.name.toUpperCase();
     categoriesBtn.id = category.id;
-    console.log(categoriesBtn);
+
+    // append each categories button to its parent
+    filter.appendChild(categoriesBtn);
+    console.log(filter);
   });
 }
 
