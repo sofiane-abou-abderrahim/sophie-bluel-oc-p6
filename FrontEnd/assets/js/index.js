@@ -1,3 +1,8 @@
+/**********General variables**********/
+
+// retrieve the DOM element that will host the works
+const gallery = document.querySelector('.gallery');
+
 /**********Functions to retrieve the gallery and categories*********/
 
 /**
@@ -35,9 +40,6 @@ async function generateWorks() {
   const works = await getWorks();
   // console.log(works);
   works.forEach(work => {
-    // retrieve the DOM element that will host the works
-    const gallery = document.querySelector('.gallery');
-
     // create dedicated elements for each work
     const figure = document.createElement('figure');
     const img = document.createElement('img');
