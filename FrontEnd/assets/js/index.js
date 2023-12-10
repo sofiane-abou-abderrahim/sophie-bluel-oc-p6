@@ -10,10 +10,14 @@ async function getWorks() {
 // console.log(await getWorks());
 await getWorks();
 
+/**
+ * @generator // function to generate tasks and display them on the website
+ */
+
 async function generateWorks() {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
-  // console.log(works);
+  console.log(works);
   works.forEach(work => {
     // retrieve the DOM element that will host the works
     const gallery = document.querySelector('.gallery');
