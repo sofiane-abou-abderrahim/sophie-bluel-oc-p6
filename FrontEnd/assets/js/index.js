@@ -10,7 +10,7 @@ async function getWorks() {
   return await response.json();
 }
 // console.log(await getWorks());
-await getWorks();
+// await getWorks();
 
 /**
  *
@@ -22,7 +22,7 @@ async function getCategories() {
   return await response.json();
 }
 // console.log(await getCategories());
-await getCategories();
+// await getCategories();
 
 /**********Functions to generate the gallery and categories*********/
 
