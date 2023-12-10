@@ -100,7 +100,16 @@ async function filterCategories() {
   // console.log(works);
 
   const filterButtons = document.querySelectorAll('.filter .button');
-  console.log(filterButtons);
+  // console.log(filterButtons);
+
+  // iterate through each filter button
+  filterButtons.forEach(filterButton => {
+    // add an event listener on each filter button
+    filterButton.addEventListener('click', event => {
+      // retrieve filter button id upon a click on a selected button
+      console.log(event.target.id);
+    });
+  });
 }
 
 filterCategories();
