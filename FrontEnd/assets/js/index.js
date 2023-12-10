@@ -75,7 +75,9 @@ async function generateCategories() {
 
     // create dedicated elements for each categories button
     const categoriesBtn = document.createElement('button');
+    // insert id and name content to each categories button
     categoriesBtn.innerText = category.name.toUpperCase();
+    categoriesBtn.id = category.id;
     console.log(categoriesBtn);
   });
 }
