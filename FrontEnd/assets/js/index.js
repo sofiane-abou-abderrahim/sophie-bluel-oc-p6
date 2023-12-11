@@ -28,7 +28,7 @@ async function getCategories() {
   const response = await fetch('http://localhost:5678/api/categories');
   return await response.json();
 }
-// console.log(await getCategories());
+console.log(await getCategories());
 await getCategories();
 
 /**********Functions to generate the gallery and categories*********/
