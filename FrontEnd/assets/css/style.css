@@ -178,6 +178,17 @@ li:hover {
   color: #b1663c;
 }
 
+.login {
+  text-decoration: none;
+  color: #000;
+}
+
+.pagelogin {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
 #introduction {
   display: flex;
   align-items: center;
