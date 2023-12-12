@@ -16,6 +16,26 @@
     <script src="./assets/js/index.js" defer></script>
   </head>
   <body>
+    <aside
+      id="modal"
+      class="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-wrapper"></div>
+      <div class="modal">
+        <img
+          src="assets/icons/vector.svg"
+          alt="icone croix pour fermer"
+          class="close-modal modal-trigger"
+        />
+        <h2 id="modal-title">Galerie photo</h2>
+        <div class="gallery_modal"></div>
+        <hr />
+        <button class="button_add_gallery">Ajouter une photo</button>
+      </div>
+    </aside>
     <div class="edit-header">
       <div class="edit">
         <img src="./assets/icons/icon_white.png" alt="" />
