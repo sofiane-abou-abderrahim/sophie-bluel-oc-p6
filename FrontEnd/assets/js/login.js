@@ -35,10 +35,10 @@ async function login() {
       const data = await response.json();
       const userdata = data.token;
       // console.log(userdata);
-      localStorage.setItem('user', userdata); // Store the user token in localStorage
+      localStorage.setItem('user', userdata); // store the user token in localStorage
 
-      // This code checks if the user's authentication token (localStorage.user) matches the token received from the server (userdata)
-      // If they match, it redirects the user to the "edit.html" page, suggesting that the user is authenticated.
+      // this code checks if the user's authentication token (localStorage.user) matches the token received from the server (userdata)
+      // ff they match, it redirects the user to the "edit.html" page, suggesting that the user is authenticated.
       if (localStorage.user === userdata) {
         document.location.href = '../edit.html';
       }
@@ -61,9 +61,9 @@ async function login() {
  * @event submit call login function upon submit event on the login form
  */
 
-// Attach the login function to the form submission event
+// attach the login function to the form submission event
 loginForm.addEventListener('submit', function (event) {
-  event.stopPropagation(); // Prevent the click event from propagating
-  event.preventDefault(); // Prevent the form from submitting in the traditional way
-  login(); // Call the login function when the form is submitted
+  event.stopPropagation(); // prevent the click event from propagating
+  event.preventDefault(); // prevent the form from submitting in the traditional way
+  login(); // call the login function when the form is submitted
 });
