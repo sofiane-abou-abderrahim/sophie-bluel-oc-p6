@@ -19,3 +19,7 @@
   background: #fff;
   border-radius: 10px;
 }
+
+.close-modal {
+  cursor: pointer;
+}
