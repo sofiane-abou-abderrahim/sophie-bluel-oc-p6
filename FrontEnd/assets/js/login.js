@@ -40,7 +40,7 @@ async function login() {
       // this code checks if the user's authentication token (localStorage.user) matches the token received from the server (userdata)
       // ff they match, it redirects the user to the "edit.html" page, suggesting that the user is authenticated.
       if (localStorage.user === userdata) {
-        document.location.href = '../edit.html';
+        document.location.href = 'edit.html';
       }
       console.log(user);
       console.log(localStorage);

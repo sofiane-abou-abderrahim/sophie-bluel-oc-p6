@@ -3,25 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <title>Modifier - Sophie Bluel - Architecte d'intérieur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans:wght@500&display=swap"
       rel="stylesheet"
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script type="module" src="assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/edit.css" />
+    <script src="./assets/js/index.js" defer></script>
   </head>
   <body>
+    <div class="edit-header">
+      <div class="edit">
+        <img src="./assets/icons/icon_white.png" alt="" />
+        <p>Mode édition</p>
+      </div>
+      <button class="button">Publier les changements</button>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><a href="./login.html" class="login">login</a></li>
+          <li><a href="./index.html" class="logout">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -30,8 +38,17 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
+          <div class="edit-image">
+            <img src="./assets/icons/icon-black.png" alt="" />
+            <p>modifier</p>
+          </div>
         </figure>
+
         <article>
+          <div class="edit-article">
+            <img src="./assets/icons/icon-black.png" alt="" />
+            <p>modifier</p>
+          </div>
           <h2>Designer d'espace</h2>
           <p>
             Je raconte votre histoire, je valorise vos idées. Je vous accompagne
@@ -51,12 +68,12 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
-        <div class="filter">
-          <button class="button selected" id="0">Tous</button>
-        </div>
-        <div class="gallery">
-          <!-- deleted all figure tags to replace them by data dynamically retrieved from http api -->
+        <div class="edit-portfolio">
+          <h2>Mes Projets</h2>
+          <div class="edit-project">
+            <img src="./assets/icons/icon-black.png" alt="" />
+            <p class="modalLink modal-trigger">modifier</p>
+          </div>
         </div>
       </section>
       <section id="contact">
