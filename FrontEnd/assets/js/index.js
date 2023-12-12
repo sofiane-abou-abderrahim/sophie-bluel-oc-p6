@@ -17,7 +17,7 @@ async function getWorks() {
   return await response.json();
 }
 // console.log(await getWorks());
-await getWorks();
+getWorks();
 
 /**
  *
@@ -28,8 +28,8 @@ async function getCategories() {
   const response = await fetch('http://localhost:5678/api/categories');
   return await response.json();
 }
-console.log(await getCategories());
-await getCategories();
+// console.log(await getCategories());
+getCategories();
 
 /**********Functions to generate the gallery and categories*********/
 
@@ -69,8 +69,11 @@ function generateCategories(category) {
   // added class button
   btnFilter.classList.add('button');
 
-  // append each categories button to its parent
-  filter.appendChild(btnFilter);
+  // check if the filter variable is not null before performing operations on it
+  if (filter) {
+    // append each categories button to its parent
+    filter.appendChild(btnFilter);
+  }
   // console.log(filter);
 }
 
@@ -89,7 +92,7 @@ async function displayWorks() {
     generateWorks(work);
   });
 }
-await displayWorks();
+displayWorks();
 
 /**
  * @async display categories in the DOM
@@ -104,7 +107,7 @@ async function displayCategories() {
     generateCategories(category);
   });
 }
-await displayCategories();
+displayCategories();
 
 /*********function to filter the gallery by project category**********/
 
@@ -143,4 +146,4 @@ async function filterCategories() {
     });
   });
 }
-await filterCategories();
+filterCategories();
