@@ -9,6 +9,8 @@ let modal = null;
 const focusableSelector = 'button, a, input, textarea';
 // create variable to save all selectable elements to it when modal box opened
 let focusables = [];
+// create variable to identify the previously focused element
+let previouslyFocusedElement = null;
 
 // function to open modal
 const openModal = function (event) {
@@ -17,10 +19,12 @@ const openModal = function (event) {
   modal = document.querySelector(event.target.getAttribute('href'));
   // retrieve all focusable elements inside the modal corresponding to our focusableSelector and convert node list into array
   focusables = Array.from(modal.querySelectorAll(focusableSelector));
-  // set the first element focusable by default
-  focusables[0].focus();
+  // find the previously focused element and store it in our variable when modal is opened
+  previouslyFocusedElement = document.querySelector(':focus');
   // display modal
   modal.style.display = null;
+  // set the first element focusable by default
+  focusables[0].focus();
   modal.removeAttribute('aria-hidden');
   modal.setAttribute('aria-modal', 'true');
   // close modal upon click
@@ -34,6 +38,10 @@ const closeModal = function (event) {
   // to not do anything if we try to close non existant modal
   if (modal === null) {
     return;
+  }
+  // set back the focus to the previously focused element after closing modal
+  if (previouslyFocusedElement !== null) {
+    previouslyFocusedElement.focus();
   }
   event.preventDefault();
   // hide modal
