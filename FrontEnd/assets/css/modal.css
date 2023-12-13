@@ -48,6 +48,34 @@
   text-align: center;
 }
 
+.gallery {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery figure {
+  margin-bottom: 10px;
+}
+
+.gallery img {
+  width: 63px;
+}
+
+.gallery figcaption {
+  display: none;
+}
+
+.gallery hr {
+  width: 420px;
+  height: 0px;
+  border: 1px solid #b3b3b3;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
 .btn-add-project {
   display: flex;
   align-items: center;
