@@ -44,6 +44,10 @@ const closeModal = function (event) {
     previouslyFocusedElement.focus();
   }
   event.preventDefault();
+  // change default browser behaviour to launch the animation again in a reverse direction
+  modal.style.display = 'none';
+  modal.offsetWidth;
+  modal.style.display = null;
   // add a delay to 'display = none' to change 'aria-hidden' to 'true' first, to see the animation when closing modal
   window.setTimeout(function () {
     // hide modal

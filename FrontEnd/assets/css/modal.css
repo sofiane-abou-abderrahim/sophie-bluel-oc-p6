@@ -27,11 +27,13 @@
 }
 
 .modal[aria-hidden='true'] {
-  animation-name: fadeOut;
+  /* animation-name: fadeOut; */
+  animation-direction: reverse;
 }
 
 .modal[aria-hidden='true'] .modal-wrapper {
-  animation-name: slideToBottom;
+  /* animation-name: slideToBottom; */
+  animation-direction: reverse;
 }
 
 @keyframes fadeIn {
@@ -43,14 +45,14 @@
   }
 }
 
-@keyframes fadeOut {
+/* @keyframes fadeOut {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
   }
-}
+} */
 
 @keyframes slideFromTop {
   from {
@@ -61,11 +63,11 @@
   }
 }
 
-@keyframes slideToBottom {
+/* @keyframes slideToBottom {
   from {
     transform: translateY(0px);
   }
   to {
     transform: translateY(50px);
   }
-}
+} */
