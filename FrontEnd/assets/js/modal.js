@@ -48,13 +48,14 @@ const closeModal = function (event) {
   modal.style.display = 'none';
   modal.offsetWidth;
   modal.style.display = null;
+
   // add a delay to 'display = none' to change 'aria-hidden' to 'true' first, to see the animation when closing modal
-  window.setTimeout(function () {
-    // hide modal
-    modal.style.display = 'none';
-    // set again modal to null as by default
-    modal = null;
-  }, 500);
+  // window.setTimeout(function () {
+  //   // hide modal
+  //   modal.style.display = 'none';
+  //   // set again modal to null as by default
+  //   modal = null;
+  // }, 500);
 
   modal.setAttribute('aria-hidden', 'true');
   modal.removeAttribute('aria-modal');
@@ -64,6 +65,16 @@ const closeModal = function (event) {
   modal
     .querySelector('.stop-modal')
     .removeEventListener('click', stopPropagation);
+  // another way to add delay and handle longer animation
+  const hideModal = function () {
+    // hide modal
+    modal.style.display = 'none';
+    // prevent from accumulating the same event multiple times with each click & avoiding bug that hides modal from the second click
+    modal.removeEventListener('animationend', hideModal);
+    // set again modal to null as by default
+    modal = null;
+  };
+  modal.addEventListener('animationend', hideModal);
 };
 
 // function to prevent from closing modal box when clicking on it
