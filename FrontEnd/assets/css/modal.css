@@ -48,26 +48,26 @@
   text-align: center;
 }
 
-.gallery {
+.modal-gallery {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.gallery figure {
+.modal-gallery figure {
   margin-bottom: 10px;
 }
 
-.gallery img {
+.modal-gallery img {
   width: 63px;
 }
 
-.gallery figcaption {
+.modal-gallery figcaption {
   display: none;
 }
 
-.gallery hr {
+.modal-gallery hr {
   width: 420px;
   height: 0px;
   border: 1px solid #b3b3b3;

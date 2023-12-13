@@ -1,5 +1,4 @@
-// Import generateWorks and displayWorks from index.js
-import { generateWorks, displayWorks } from './index.js';
+import { displayWorks } from './index.js';
 
 /*********Display the modal window when clicking the 'edit' button**********/
 
@@ -26,11 +25,11 @@ const openModal = async function (event) {
   previouslyFocusedElement = document.querySelector(':focus');
 
   // clear the modal gallery before displaying works
-  const modalGallery = modal.querySelector('.gallery');
+  const modalGallery = modal.querySelector('.modal-gallery');
   modalGallery.innerHTML = '';
 
   // display works in the modal
-  await displayWorks();
+  await displayWorks(modalGallery);
 
   // display modal
   modal.style.display = null;

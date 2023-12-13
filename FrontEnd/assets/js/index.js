@@ -1,7 +1,7 @@
 /**********General variables**********/
 
 // retrieve the DOM element that will host the works
-const gallery = document.querySelector('.gallery');
+const mainGallery = document.querySelector('.gallery');
 // retrieve the DOM element that will host categories buttons
 const filter = document.querySelector('.filter');
 
@@ -37,7 +37,7 @@ getCategories();
  * @generator function to generate tasks and display them on the website
  */
 
-export function generateWorks(work) {
+export function generateWorks(work, targetGallery) {
   // create dedicated elements for each work
   const figure = document.createElement('figure');
   const img = document.createElement('img');
@@ -53,7 +53,7 @@ export function generateWorks(work) {
   figure.appendChild(figcaption);
 
   // attach the figure tag to the gallery div
-  gallery.appendChild(figure);
+  targetGallery.appendChild(figure);
 }
 
 /**
@@ -83,16 +83,16 @@ function generateCategories(category) {
  * @async display works in the DOM
  */
 
-export async function displayWorks() {
+export async function displayWorks(targetGallery) {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
   // console.log(works);
 
   works.forEach(work => {
-    generateWorks(work);
+    generateWorks(work, targetGallery);
   });
 }
-displayWorks();
+displayWorks(mainGallery);
 
 /**
  * @async display categories in the DOM
