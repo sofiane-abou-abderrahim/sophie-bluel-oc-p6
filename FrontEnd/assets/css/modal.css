@@ -23,6 +23,9 @@
 }
 
 .close-modal {
+  position: absolute;
+  top: 35px;
+  right: 35px;
   cursor: pointer;
 }
 
