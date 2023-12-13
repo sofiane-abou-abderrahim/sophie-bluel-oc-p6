@@ -37,7 +37,7 @@ getCategories();
  * @generator function to generate tasks and display them on the website
  */
 
-function generateWorks(work) {
+export function generateWorks(work) {
   // create dedicated elements for each work
   const figure = document.createElement('figure');
   const img = document.createElement('img');
@@ -83,7 +83,7 @@ function generateCategories(category) {
  * @async display works in the DOM
  */
 
-async function displayWorks() {
+export async function displayWorks() {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
   // console.log(works);
