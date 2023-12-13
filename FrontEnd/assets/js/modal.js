@@ -19,6 +19,7 @@ const openModal = function (event) {
   // close modal upon click
   modal.addEventListener('click', closeModal);
   modal.querySelector('.close-modal').addEventListener('click', closeModal);
+  modal.querySelector('.stop-modal').addEventListener('click', stopPropagation);
 };
 
 // function to close modal
@@ -32,12 +33,20 @@ const closeModal = function (event) {
   modal.style.display = 'none';
   modal.setAttribute('aria-hidden', 'true');
   modal.removeAttribute('aria-modal');
-  // delete event listener
-  modal.removeEventListener('click', closeModal);
   // delete event listener to entirely clean modal box
+  modal.removeEventListener('click', closeModal);
   modal.querySelector('.close-modal').removeEventListener('click', closeModal);
+  modal
+    .querySelector('.stop-modal')
+    .removeEventListener('click', stopPropagation);
+
   // set again modal to null as by default
   modal = null;
+};
+
+// function to prevent from closing modal box when clicking on it
+const stopPropagation = function (event) {
+  event.stopPropagation();
 };
 
 // open modal upon click on the edit link
