@@ -17,6 +17,8 @@ const openModal = function (event) {
   modal = document.querySelector(event.target.getAttribute('href'));
   // retrieve all focusable elements inside the modal corresponding to our focusableSelector and convert node list into array
   focusables = Array.from(modal.querySelectorAll(focusableSelector));
+  // set the first element focusable by default
+  focusables[0].focus();
   // display modal
   modal.style.display = null;
   modal.removeAttribute('aria-hidden');
