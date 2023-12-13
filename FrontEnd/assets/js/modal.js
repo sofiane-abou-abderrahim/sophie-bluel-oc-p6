@@ -1,3 +1,6 @@
+// Import generateWorks and displayWorks from index.js
+import { generateWorks, displayWorks } from './index.js';
+
 /*********Display the modal window when clicking the 'edit' button**********/
 
 const modalTriggers = document.querySelectorAll('.modal-trigger');
