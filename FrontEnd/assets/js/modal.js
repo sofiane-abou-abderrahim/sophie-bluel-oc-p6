@@ -44,8 +44,14 @@ const closeModal = function (event) {
     previouslyFocusedElement.focus();
   }
   event.preventDefault();
-  // hide modal
-  modal.style.display = 'none';
+  // add a delay to 'display = none' to change 'aria-hidden' to 'true' first, to see the animation when closing modal
+  window.setTimeout(function () {
+    // hide modal
+    modal.style.display = 'none';
+    // set again modal to null as by default
+    modal = null;
+  }, 500);
+
   modal.setAttribute('aria-hidden', 'true');
   modal.removeAttribute('aria-modal');
   // delete event listener to entirely clean modal box
@@ -54,9 +60,6 @@ const closeModal = function (event) {
   modal
     .querySelector('.stop-modal')
     .removeEventListener('click', stopPropagation);
-
-  // set again modal to null as by default
-  modal = null;
 };
 
 // function to prevent from closing modal box when clicking on it
