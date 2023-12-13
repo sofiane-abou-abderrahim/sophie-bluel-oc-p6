@@ -53,3 +53,11 @@ const stopPropagation = function (event) {
 modalTriggers.forEach(trigger => {
   trigger.addEventListener('click', openModal);
 });
+
+// "upport keyboard functionality to close the modal when the 'Escape' key is pressed
+window.addEventListener('keydown', function (event) {
+  // console.log(event.key);
+  if (event.key === 'Escape' || event.key === 'Esc') {
+    closeModal(event);
+  }
+});
