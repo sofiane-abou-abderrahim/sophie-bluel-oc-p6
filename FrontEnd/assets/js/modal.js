@@ -16,7 +16,7 @@ let focusables = [];
 let previouslyFocusedElement = null;
 
 // function to open modal
-const openModal = function (event) {
+const openModal = async function (event) {
   event.preventDefault();
   // retrieve the attribute 'href=#modal1'
   modal = document.querySelector(event.target.getAttribute('href'));
@@ -24,6 +24,14 @@ const openModal = function (event) {
   focusables = Array.from(modal.querySelectorAll(focusableSelector));
   // find the previously focused element and store it in our variable when modal is opened
   previouslyFocusedElement = document.querySelector(':focus');
+
+  // clear the modal gallery before displaying works
+  const modalGallery = modal.querySelector('.gallery');
+  modalGallery.innerHTML = '';
+
+  // display works in the modal
+  await displayWorks();
+
   // display modal
   modal.style.display = null;
   // set the first element focusable by default
