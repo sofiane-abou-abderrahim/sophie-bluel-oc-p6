@@ -48,11 +48,26 @@ export function generateWorks(work, targetGallery) {
   // added work title to figcaption as its text
   figcaption.innerText = work.title;
 
-  // appended each element to its parent
-  figure.appendChild(img);
+  // Create a container div to hold both the image and the delete icon
+  const container = document.createElement('div');
+  container.classList.add('work-container');
+
+  // Create the delete icon and set its attributes
+  const deleteIcon = document.createElement('img');
+  deleteIcon.src = 'assets/icons/modal-delete-icon.svg';
+  deleteIcon.alt = 'Delete Icon';
+  deleteIcon.classList.add('modal-delete-icon');
+  deleteIcon.dataset.id = work.id;
+
+  // Append the image and delete icon to the container
+  container.appendChild(img);
+  container.appendChild(deleteIcon);
+
+  // Append the container and figcaption to the figure
+  figure.appendChild(container);
   figure.appendChild(figcaption);
 
-  // attach the figure tag to the gallery div
+  // Append the figure to the target gallery
   targetGallery.appendChild(figure);
 }
 
