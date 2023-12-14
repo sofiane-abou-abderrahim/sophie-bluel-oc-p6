@@ -23,7 +23,7 @@
 }
 
 .modal-content {
-  margin: 0px 59px;
+  margin: 0px 90px;
 }
 
 .close-modal {
@@ -31,16 +31,6 @@
   top: 35px;
   right: 35px;
   cursor: pointer;
-}
-
-.modal[aria-hidden='true'] {
-  /* animation-name: fadeOut; */
-  animation-direction: reverse;
-}
-
-.modal[aria-hidden='true'] .modal-wrapper {
-  /* animation-name: slideToBottom; */
-  animation-direction: reverse;
 }
 
 #modal-title {
@@ -60,12 +50,20 @@
   gap: 10px;
 }
 
-.modal-gallery figure {
-  margin-bottom: 10px;
+.modal-gallery img {
+  width: 67px;
 }
 
-.modal-gallery img {
-  width: 77px;
+.modal-delete-icon {
+  display: block;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  margin-top: -87px;
+  margin-right: -55px;
+  margin-bottom: 80px;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .modal-gallery figcaption {
@@ -73,11 +71,11 @@
 }
 
 .modal-content hr {
-  width: 420px;
+  /* width: 420px; */
   height: 0px;
   border: 1px solid #b3b3b3;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 
@@ -96,6 +94,16 @@
   text-align: center;
   padding: 10px 50px;
   cursor: pointer;
+}
+
+.modal[aria-hidden='true'] {
+  /* animation-name: fadeOut; */
+  animation-direction: reverse;
+}
+
+.modal[aria-hidden='true'] .modal-wrapper {
+  /* animation-name: slideToBottom; */
+  animation-direction: reverse;
 }
 
 @keyframes fadeIn {
