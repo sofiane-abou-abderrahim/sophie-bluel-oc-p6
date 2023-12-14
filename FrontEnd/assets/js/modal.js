@@ -29,7 +29,7 @@ const openModal = async function (event) {
   modalGallery.innerHTML = '';
 
   // display works in the modal
-  await displayWorks(modalGallery);
+  await displayWorks(modalGallery, true);
 
   // display modal
   modal.style.display = null;

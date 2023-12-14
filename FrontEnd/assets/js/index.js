@@ -37,7 +37,7 @@ getCategories();
  * @generator function to generate tasks and display them on the website
  */
 
-export function generateWorks(work, targetGallery) {
+function generateWorks(work, targetGallery, showDeleteIcon = false) {
   // create dedicated elements for each work
   const figure = document.createElement('figure');
   const img = document.createElement('img');
@@ -48,24 +48,30 @@ export function generateWorks(work, targetGallery) {
   // added work title to figcaption as its text
   figcaption.innerText = work.title;
 
-  // Create a container div to hold both the image and the delete icon
-  const container = document.createElement('div');
-  container.classList.add('work-container');
+  // If showDeleteIcon is true, add the delete icon to the figure
+  if (showDeleteIcon) {
+    // Create a container div to hold both the image and the delete icon
+    const container = document.createElement('div');
+    container.classList.add('work-container');
 
-  // Create the delete icon and set its attributes
-  const deleteIcon = document.createElement('img');
-  deleteIcon.src = 'assets/icons/modal-delete-icon.svg';
-  deleteIcon.alt = 'Delete Icon';
-  deleteIcon.classList.add('modal-delete-icon');
-  deleteIcon.dataset.id = work.id;
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = 'assets/icons/modal-delete-icon.svg';
+    deleteIcon.alt = 'Delete Icon';
+    deleteIcon.classList.add('modal-delete-icon');
+    deleteIcon.dataset.id = work.id;
 
-  // Append the image and delete icon to the container
-  container.appendChild(img);
-  container.appendChild(deleteIcon);
+    // Append the image and delete icon to the container
+    container.appendChild(img);
+    container.appendChild(deleteIcon);
 
-  // Append the container and figcaption to the figure
-  figure.appendChild(container);
-  figure.appendChild(figcaption);
+    // Append the container and figcaption to the figure
+    figure.appendChild(container);
+    figure.appendChild(figcaption);
+  } else {
+    // If showDeleteIcon is false, just append the image and figcaption to the figure
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+  }
 
   // Append the figure to the target gallery
   targetGallery.appendChild(figure);
@@ -98,13 +104,13 @@ function generateCategories(category) {
  * @async display works in the DOM
  */
 
-export async function displayWorks(targetGallery) {
+export async function displayWorks(targetGallery, showDeleteIcon) {
   // store http api response in a constant in a JSON format
   const works = await getWorks();
   // console.log(works);
 
   works.forEach(work => {
-    generateWorks(work, targetGallery);
+    generateWorks(work, targetGallery, showDeleteIcon);
   });
 }
 displayWorks(mainGallery);
