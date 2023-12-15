@@ -1,4 +1,5 @@
 import { displayWorks } from './index.js';
+import { deleteProject } from './delete.js';
 
 /*********Display the modal window when clicking the 'edit' button**********/
 
@@ -30,6 +31,9 @@ const openModal = async function (event) {
 
   // display works in the modal
   await displayWorks(modalGallery, true);
+
+  // delete works from the modal
+  deleteProject();
 
   // display modal
   modal.style.display = null;
