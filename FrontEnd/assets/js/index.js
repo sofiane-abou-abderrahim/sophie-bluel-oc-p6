@@ -151,7 +151,7 @@ async function filterCategories() {
       const filterButtonId = event.target.id;
 
       // delete all works in the gallery upon each filter button to refresh the page and make it interactive
-      gallery.innerHTML = '';
+      mainGallery.innerHTML = '';
 
       // logic for filtering buttons
       if (filterButtonId !== '0') {
@@ -159,10 +159,10 @@ async function filterCategories() {
           return work.categoryId == filterButtonId;
         });
         filteredWorks.forEach(work => {
-          generateWorks(work);
+          generateWorks(work, mainGallery);
         });
       } else {
-        displayWorks();
+        displayWorks(mainGallery);
       }
     });
   });
