@@ -16,8 +16,6 @@ async function getWorks() {
   const response = await fetch('http://localhost:5678/api/works');
   return await response.json();
 }
-// console.log(await getWorks());
-getWorks();
 
 /**
  *
@@ -28,8 +26,6 @@ async function getCategories() {
   const response = await fetch('http://localhost:5678/api/categories');
   return await response.json();
 }
-// console.log(await getCategories());
-getCategories();
 
 /**********Functions to generate the gallery and categories*********/
 
