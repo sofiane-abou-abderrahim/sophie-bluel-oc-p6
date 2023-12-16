@@ -1,4 +1,17 @@
+//**********Global variables*********//
+
+/**
+ * @global define global scope variables
+ */
+
+// define portfolio in the global scope
+const portfolio = document.getElementById('portfolio');
+
 //**********Function to retrieve the gallery from the API**********//
+
+/**
+ * @async function that fetches data from the API and subsequently creates a gallery based on that data
+ */
 
 const getWorks = async () => {
   let galleryList = [];
@@ -18,6 +31,11 @@ const getWorks = async () => {
 };
 
 //**********Function to create the gallery**********//
+
+/**
+ *
+ * @param {*} galleryList function that creates the gallery
+ */
 
 const createGallery = galleryList => {
   const gallery = document.createElement('div');
