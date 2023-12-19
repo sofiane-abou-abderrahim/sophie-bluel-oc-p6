@@ -105,6 +105,9 @@ export async function displayWorks(targetGallery, showDeleteIcon) {
   const works = await getWorks();
   // console.log(works);
 
+  // Clear the existing content in the target gallery
+  targetGallery.innerHTML = '';
+
   works.forEach(work => {
     generateWorks(work, targetGallery, showDeleteIcon);
   });

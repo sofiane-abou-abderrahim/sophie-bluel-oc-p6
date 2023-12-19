@@ -1,3 +1,5 @@
+import { displayWorks } from './index.js';
+
 //*********Deletion of existing works*********//
 
 async function deleteWorks(event) {
@@ -27,6 +29,10 @@ async function deleteWorks(event) {
         // Remove the parent element of the delete icon (the entire work container)
         const workContainer = event.target.closest('.work-container');
         workContainer.remove();
+
+        // After deletion, display the updated works in the main gallery
+        const mainGallery = document.querySelector('.gallery');
+        displayWorks(mainGallery);
       }
     } else if (response.status === '401') {
       alert('Session expirée, merci de vous reconnecter');
