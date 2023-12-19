@@ -118,7 +118,7 @@ displayWorks(mainGallery);
  * @async display categories in the DOM
  */
 
-async function displayCategories() {
+export async function displayCategories() {
   // store http api response in a constant in a JSON format
   const categories = await getCategories();
   // console.log(categories);

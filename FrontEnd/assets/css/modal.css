@@ -28,7 +28,7 @@
 
 .close-modal {
   position: absolute;
-  top: 35px;
+  top: 20px;
   right: 35px;
   cursor: pointer;
 }
@@ -142,8 +142,10 @@
   }
 } */
 
+/**********Modal Add Project*********/
+
 .modal-add-project {
-  /* display: none; */
+  display: none;
 }
 
 .modal-arrow {
