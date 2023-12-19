@@ -30,7 +30,7 @@
       <div class="modal-wrapper stop-modal">
         <div class="modal-content">
           <img
-            src="assets/icons/vector.svg"
+            src="assets/icons/close-modal.svg"
             alt="icône croix pour fermer la fenêtre de la modale"
             class="close-modal"
           />
@@ -38,6 +38,36 @@
           <div class="modal-gallery"></div>
           <hr />
           <button class="btn-add-project">Ajouter une photo</button>
+        </div>
+        <div class="modal-add-project">
+          <img
+            src="assets/icons/arrow-back.svg"
+            alt="Icône flèche retour"
+            class="modal-arrow"
+          />
+          <img
+            src="assets/icons/close-modal.svg"
+            alt="Icône croix pour fermer la modale"
+            class="close-modal modal-trigger"
+          />
+          <h2 class="modal-title">Ajout photo</h2>
+          <form class="modal-upload-image-form">
+            <label for="file" class="modal-add-image-form">
+              <img src="assets/icons/add-image.svg" alt="" />
+              <span class="modal-add-image-button">+ Ajouter photo</span>
+              <span class="modal-image-format">jpg, png: 4mo max</span>
+            </label>
+            <label for="modal-title-image">Titre</label>
+            <input
+              type="text"
+              id="modal-title-image"
+              name="modal-title-image"
+            />
+            <label for="modal-categories">Catégories</label>
+            <select name="modal-categories" id="modal-categories"></select>
+            <hr />
+            <button class="modal-form-confirm-button" disabled>Valider</button>
+          </form>
         </div>
       </div>
     </aside>
