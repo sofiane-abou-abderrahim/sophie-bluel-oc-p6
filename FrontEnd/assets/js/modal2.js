@@ -1,3 +1,5 @@
+import { getCategories } from './index.js';
+
 /**********Functions to swap between first modal & second modal**********/
 
 // Initialize global variables for form elements used in multiple functions
@@ -37,5 +39,24 @@ function openModalAdd() {
   inputFile.style.display = 'none';
   uploadImageForm.appendChild(inputFile);
 
-  // categoriesSelect(categoriesList);
+  categoriesSelect();
+}
+
+// Select a category for the image to be added
+async function categoriesSelect(categories) {
+  const categorySelect = document.getElementById('modal-categories');
+
+  categorySelect.innerHTML = `
+ <option value ="default" selected></option>
+  `;
+
+  categories = await getCategories();
+  // console.log(categories);
+
+  categories.forEach(category => {
+    const option = document.createElement('option');
+    option.value = category.id;
+    option.textContent = category.name;
+    categorySelect.appendChild(option);
+  });
 }

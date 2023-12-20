@@ -22,10 +22,12 @@ async function getWorks() {
  * @returns function that retrieves categories from the API
  */
 
-async function getCategories() {
+export async function getCategories() {
   const response = await fetch('http://localhost:5678/api/categories');
   return await response.json();
 }
+
+// console.log(await getCategories());
 
 /**********Functions to generate the gallery and categories*********/
 
