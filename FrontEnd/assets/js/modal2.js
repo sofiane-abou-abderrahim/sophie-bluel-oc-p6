@@ -49,14 +49,17 @@ async function categoriesSelect(categories) {
   categorySelect.innerHTML = `
  <option value ="default" selected></option>
   `;
+  try {
+    categories = await getCategories();
+    // console.log(categories);
 
-  categories = await getCategories();
-  // console.log(categories);
-
-  categories.forEach(category => {
-    const option = document.createElement('option');
-    option.value = category.id;
-    option.textContent = category.name;
-    categorySelect.appendChild(option);
-  });
+    categories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category.id;
+      option.textContent = category.name;
+      categorySelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Error getting categories:', error);
+  }
 }
