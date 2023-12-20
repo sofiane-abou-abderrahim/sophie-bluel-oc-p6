@@ -1,4 +1,4 @@
-import { displayWorks, displayCategories } from './index.js';
+import { displayWorks } from './index.js';
 import { deleteProject } from './delete.js';
 
 /*********Display the modal window when clicking the 'edit' button**********/

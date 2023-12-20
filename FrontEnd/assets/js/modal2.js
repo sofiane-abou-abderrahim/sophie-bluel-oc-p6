@@ -28,7 +28,7 @@ function firstModal() {
 }
 
 // Function to display the second modal
-function openModalAdd() {
+async function openModalAdd() {
   firstModalContainer.style.display = 'none';
   secondModalContainer.style.display = 'block';
 
@@ -39,7 +39,7 @@ function openModalAdd() {
   inputFile.style.display = 'none';
   uploadImageForm.appendChild(inputFile);
 
-  categoriesSelect();
+  await categoriesSelect();
 }
 
 // Select a category for the image to be added
