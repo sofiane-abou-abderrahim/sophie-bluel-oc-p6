@@ -10,15 +10,11 @@ const modalArrow = document.querySelector('.modal-arrow');
 if (modalArrow !== null) modalArrow.addEventListener('click', firstModal);
 
 const uploadImageForm = document.querySelector('.modal-upload-image-form');
-const labelFile = document.querySelector('.modal-add-image-form');
+
 const inputFile = document.createElement('input');
-const imgElement = document.createElement('img');
-imgElement.classList.add('img-uploaded');
 
 const btnAdd = document.querySelector('.btn-add-project');
 if (btnAdd !== null) btnAdd.addEventListener('click', openModalAdd);
-
-const confirmBtn = document.querySelector('.modal-form-confirm-button');
 
 // Function to display the first modal
 function firstModal() {
