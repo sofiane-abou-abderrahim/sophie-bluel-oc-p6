@@ -43,7 +43,9 @@ const openModal = async function (event) {
   modal.setAttribute('aria-modal', 'true');
   // close modal upon click
   modal.addEventListener('click', closeModal);
-  modal.querySelector('.close-modal').addEventListener('click', closeModal);
+  modal
+    .querySelectorAll('.close-modal')
+    .forEach(close => close.addEventListener('click', closeModal));
   modal.querySelector('.stop-modal').addEventListener('click', stopPropagation);
 };
 
@@ -75,7 +77,9 @@ const closeModal = function (event) {
   modal.removeAttribute('aria-modal');
   // delete event listener to entirely clean modal box
   modal.removeEventListener('click', closeModal);
-  modal.querySelector('.close-modal').removeEventListener('click', closeModal);
+  modal
+    .querySelectorAll('.close-modal')
+    .forEach(close => close.addEventListener('click', closeModal));
   modal
     .querySelector('.stop-modal')
     .removeEventListener('click', stopPropagation);
