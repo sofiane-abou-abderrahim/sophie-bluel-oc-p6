@@ -167,10 +167,16 @@ function resetForm() {
  */
 function previewFile(event) {
   // Step 1: Regular expression to check if the file has a supported extension (jpg or png)
+  // The regular expression /\.(jpe?g|png)$/i indicates that it matches filenames ending with ".jpg" or ".jpeg" or ".png," regardless of case (thanks to the "i" modifier)
   const fileExtensionRegex = /\.(jpe?g|png)$/i;
 
   // Step 2: Check if no file is selected or if the selected file has an unsupported format
-  if (this.files.length === 0 || !fileExtensionRegex.test(this.files[0].name)) {
+  // In the context of inputFile.files, the term "files" is a property of the file input element and is part of the File API in JavaScript
+  // The test() method is a native method of RegExp objects in JavaScript, and it returns true if the provided string matches the regular expression and false otherwise
+  if (
+    inputFile.files.length === 0 ||
+    !fileExtensionRegex.test(inputFile.files[0].name)
+  ) {
     // Display an alert for unsupported format, reset the form, and exit the function
     alert('Format non pris en charge, merci de choisir une autre photo');
     resetForm();
@@ -200,5 +206,13 @@ function previewFile(event) {
   }
 }
 
-// Event listener for file change triggering the preview
+/**
+ * Event listener for changes in the selected file, triggering the preview function.
+ * This listener is attached to the 'change' event of the file input element.
+ *
+ * @event
+ * @type {HTMLElement}
+ * @param {Event} event - The 'change' event triggered when a file is selected.
+ * @returns {void}
+ */
 inputFile.addEventListener('change', previewFile);
