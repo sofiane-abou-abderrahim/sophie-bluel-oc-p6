@@ -219,7 +219,7 @@
   cursor: pointer;
 }
 
-.modal-add-image-form .img_uploaded {
+.modal-add-image-form .img-uploaded {
   display: block;
   margin: auto;
   height: 170px;

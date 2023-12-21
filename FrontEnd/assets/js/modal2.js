@@ -1,6 +1,6 @@
 import { getCategories } from './index.js';
 
-/**********Functions to swap between the first modal & second modal**********/
+/**********Global constants**********/
 
 /**
  * Represents a container for the first modal.
@@ -65,6 +65,15 @@ const confirmBtn = document.querySelector('.modal-form-confirm-button');
  * @type {HTMLInputElement}
  */
 const inputTitle = document.getElementById('modal-title-image');
+
+/**
+ * Represents the preview image element in the second modal.
+ * @type {HTMLImageElement}
+ */
+const imgElement = document.createElement('img');
+imgElement.classList.add('img-uploaded');
+
+/**********Functions to swap between the first modal & second modal**********/
 
 /**
  * Function to display the first modal.
@@ -149,3 +158,47 @@ function resetForm() {
   confirmBtn.style.background = '#A7A7A7';
   confirmBtn.style.cursor = 'auto';
 }
+
+/**
+ * Function to preview the selected image before validation.
+ * @function
+ * @param {Event} event - The change event triggered by selecting a file.
+ * @returns {void}
+ */
+function previewFile(event) {
+  // Step 1: Regular expression to check if the file has a supported extension (jpg or png)
+  const fileExtensionRegex = /\.(jpe?g|png)$/i;
+
+  // Step 2: Check if no file is selected or if the selected file has an unsupported format
+  if (this.files.length === 0 || !fileExtensionRegex.test(this.files[0].name)) {
+    // Display an alert for unsupported format, reset the form, and exit the function
+    alert('Format non pris en charge, merci de choisir une autre photo');
+    resetForm();
+    return;
+  }
+
+  // Step 3: If the format is supported, get the file, create a URL for the image, and call the displayImage function
+  let file = event.target.files[0];
+  let url = URL.createObjectURL(file);
+  displayImage();
+
+  /**
+   * Function to create the image and integrate it into the label.
+   * @function
+   * @returns {void}
+   */
+  function displayImage() {
+    // Step 1: Remove padding from the labelFile element
+    labelFile.style.padding = '0px';
+
+    // Step 2: Set the source of the imgElement to the created URL for the image
+    imgElement.src = url;
+
+    // Step 3: Clear the content of the labelFile and append the imgElement to integrate the thumbnail into the label
+    labelFile.innerHTML = '';
+    labelFile.appendChild(imgElement);
+  }
+}
+
+// Event listener for file change triggering the preview
+inputFile.addEventListener('change', previewFile);
