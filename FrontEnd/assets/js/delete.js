@@ -36,7 +36,7 @@ async function deleteWorks(event) {
       }
     } else if (response.status === '401') {
       alert('Session expirée, merci de vous reconnecter');
-      document.location.href('login.html');
+      document.location.href = 'login.html';
     } else {
       const errorData = await response.json();
       console.error('Error deleting project:', errorData);
