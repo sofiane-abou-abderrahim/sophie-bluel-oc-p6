@@ -1,4 +1,5 @@
 import { getCategories, displayWorks } from './index.js';
+import { deleteProject } from './delete.js';
 
 /**********Global constants**********/
 
@@ -332,6 +333,9 @@ async function addProject(event) {
 
       // Display works in the main gallery
       await displayWorks(mainGallery);
+
+      // delete works from the modal
+      deleteProject();
 
       // Reset the form and return to the first modal
       resetForm();
