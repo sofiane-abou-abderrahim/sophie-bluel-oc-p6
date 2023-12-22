@@ -248,6 +248,7 @@ function switchConfirmBtnStyles() {
  * @event
  * @type {EventListener}
  * @listens input
+ * @listens submit
  */
 if (inputTitle !== null) {
   /**
@@ -259,4 +260,65 @@ if (inputTitle !== null) {
   inputTitle.addEventListener('input', switchConfirmBtnStyles);
   categorySelect.addEventListener('input', switchConfirmBtnStyles);
   inputFile.addEventListener('input', switchConfirmBtnStyles);
+
+  /**
+   * Event listener for form submission.
+   * Prevents the default form submission behavior and calls the 'addProject' function.
+   *
+   * @event
+   * @type {EventListener}
+   */
+  uploadImageForm.addEventListener('submit', addProject);
+}
+
+/**
+ * Submit the form and send the project to the database.
+ *
+ * @async
+ * @function
+ * @param {Event} event - The form submission event.
+ * @returns {void}
+ */
+async function addProject(event) {
+  // Prevent the default form submission behavior, which would reload the page
+  event.preventDefault();
+
+  // Create a FormData object to easily construct key/value pairs for form data
+  const formData = new FormData();
+  formData.append('image', inputFile.files[0]); // Add the selected image file to the form data
+  formData.append('title', inputTitle.value); // Add the title to the form data
+  formData.append('category', categorySelect.value); // Add the category to the form data
+
+  // Send a POST request to the server
+  try {
+    const response = await fetch('http://localhost:5678/api/works', {
+      method: 'POST',
+      headers: {
+        // Include the user's authorization token in the request header
+        Authorization: 'Bearer ' + localStorage.user
+      },
+      body: formData // Include the form data in the request body
+    });
+
+    // Check if the server response is successful (status code 200-299)
+    if (response.ok) {
+      // If successful, parse the response data as JSON
+      const responseData = await response.json();
+      // Log the parsed response data to the console
+      console.log(responseData);
+    } else {
+      // If the server response is not successful, log an error with status and status text
+      console.error(
+        "Échec d'ajout du projet. Le serveur a renvoyé une erreur:",
+        response.status,
+        response.statusText
+      );
+    }
+  } catch (error) {
+    // If an error occurs during the request, log the error details to the console
+    console.error(
+      "Une erreur s'est produite lors du traitement de la requête:",
+      error
+    );
+  }
 }
