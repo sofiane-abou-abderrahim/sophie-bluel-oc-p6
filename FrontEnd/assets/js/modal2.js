@@ -1,4 +1,4 @@
-import { getCategories } from './index.js';
+import { getCategories, displayWorks } from './index.js';
 
 /**********Global constants**********/
 
@@ -72,6 +72,26 @@ const inputTitle = document.getElementById('modal-title-image');
  */
 const imgElement = document.createElement('img');
 imgElement.classList.add('img-uploaded');
+
+/**
+ * Represents the main gallery & the gallery specific to the second modal.
+ * @type {HTMLElement}
+ */
+const mainGallery = document.querySelector('.gallery');
+const modalGallery = document.querySelector('.modal-gallery');
+
+/**
+ * Function to display works in the modal gallery, optionally clearing existing content.
+ * @async
+ * @function
+ * @param {HTMLElement} gallery - The gallery element to display works in.
+ * @param {boolean} [clearGallery=false] - A flag to indicate whether to clear existing content in the gallery.
+ * @returns {Promise<void>}
+ */
+async function displayModalWorks(gallery, clearGallery = false) {
+  // Display works in the specified gallery
+  await displayWorks(gallery, clearGallery);
+}
 
 /**********Functions to swap between the first modal & second modal**********/
 
@@ -272,7 +292,7 @@ if (inputTitle !== null) {
 }
 
 /**
- * Submit the form and send the project to the database.
+ * Function to submit the form, send the project to the database, and update galleries.
  *
  * @async
  * @function
@@ -306,6 +326,16 @@ async function addProject(event) {
       const responseData = await response.json();
       // Log the parsed response data to the console
       console.log(responseData);
+
+      // Display works in the modal gallery, optionally clearing existing content
+      await displayModalWorks(modalGallery, true);
+
+      // Display works in the main gallery
+      await displayWorks(mainGallery);
+
+      // Reset the form and return to the first modal
+      resetForm();
+      firstModal();
     } else {
       // If the server response is not successful, log an error with status and status text
       console.error(
