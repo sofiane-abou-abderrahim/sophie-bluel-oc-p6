@@ -80,19 +80,6 @@ imgElement.classList.add('img-uploaded');
 const mainGallery = document.querySelector('.gallery');
 const modalGallery = document.querySelector('.modal-gallery');
 
-/**
- * Function to display works in the modal gallery, optionally clearing existing content.
- * @async
- * @function
- * @param {HTMLElement} gallery - The gallery element to display works in.
- * @param {boolean} [clearGallery=false] - A flag to indicate whether to clear existing content in the gallery.
- * @returns {Promise<void>}
- */
-async function displayModalWorks(gallery, clearGallery = false) {
-  // Display works in the specified gallery
-  await displayWorks(gallery, clearGallery);
-}
-
 /**********Functions to swap between the first modal & second modal**********/
 
 /**
@@ -328,7 +315,7 @@ async function addProject(event) {
       console.log(responseData);
 
       // Display works in the modal gallery, optionally clearing existing content
-      await displayModalWorks(modalGallery, true);
+      await displayWorks(modalGallery, true);
 
       // Display works in the main gallery
       await displayWorks(mainGallery);
