@@ -5,6 +5,9 @@ const mainGallery = document.querySelector('.gallery');
 // retrieve the DOM element that will host categories buttons
 const filter = document.querySelector('.filter');
 
+const logoutButton = document.querySelector('.logout');
+// console.log(logoutButton);
+
 /**********Functions to retrieve the gallery and categories from the API*********/
 
 /**
@@ -64,12 +67,12 @@ function generateWorks(work, targetGallery, showDeleteIcon = false) {
 
     // Append the container and figcaption to the figure
     figure.appendChild(container);
-    figure.appendChild(figcaption);
   } else {
     // If showDeleteIcon is false, just append the image and figcaption to the figure
     figure.appendChild(img);
-    figure.appendChild(figcaption);
   }
+
+  figure.appendChild(figcaption);
 
   // Append the figure to the target gallery
   targetGallery.appendChild(figure);
@@ -114,7 +117,6 @@ export async function displayWorks(targetGallery, showDeleteIcon) {
     generateWorks(work, targetGallery, showDeleteIcon);
   });
 }
-displayWorks(mainGallery);
 
 /**
  * @async display categories in the DOM
@@ -129,7 +131,6 @@ export async function displayCategories() {
     generateCategories(category);
   });
 }
-displayCategories();
 
 /*********function to filter the gallery by project category**********/
 
@@ -168,4 +169,33 @@ async function filterCategories() {
     });
   });
 }
+
+/**
+ * Displays artworks in the gallery upon page load.
+ * @param {HTMLElement} targetGallery - The HTML element that will contain the artworks.
+ * @param {boolean} showDeleteIcon - Indicates whether the delete icon should be displayed.
+ * @returns {Promise<void>} - A promise indicating that the display of artworks is complete.
+ */
+displayWorks(mainGallery);
+
+/**
+ * Displays categories in the menu upon page load.
+ * @returns {Promise<void>} - A promise indicating that the display of categories is complete.
+ */
+displayCategories();
+
+/**
+ * Filters artworks based on the selected category upon page load.
+ * @returns {Promise<void>} - A promise indicating that the artwork filtering is complete.
+ */
 filterCategories();
+
+/**
+ * Adds a logout event to the logout button.
+ * Removes the user from the session upon clicking the logout button.
+ */
+if (logoutButton !== null) {
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('user');
+  });
+}
