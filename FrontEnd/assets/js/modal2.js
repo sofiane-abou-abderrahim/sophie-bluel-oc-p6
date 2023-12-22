@@ -336,13 +336,16 @@ async function addProject(event) {
       // Reset the form and return to the first modal
       resetForm();
       firstModal();
-    } else {
+    } else if (res.status === '401') {
       // If the server response is not successful, log an error with status and status text
       console.error(
         "Échec d'ajout du projet. Le serveur a renvoyé une erreur:",
         response.status,
         response.statusText
       );
+
+      alert('Session expirée, merci de vous reconnecter');
+      document.location.href = 'login.html';
     }
   } catch (error) {
     // If an error occurs during the request, log the error details to the console
