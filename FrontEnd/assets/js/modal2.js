@@ -101,7 +101,7 @@ async function displayModalWorks(gallery, clearGallery = false) {
  * @function
  * @returns {void}
  */
-function firstModal() {
+export function firstModal() {
   firstModalContainer.style.display = 'block';
   secondModalContainer.style.display = 'none';
   resetForm();

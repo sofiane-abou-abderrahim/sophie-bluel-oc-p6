@@ -1,5 +1,6 @@
 import { displayWorks } from './index.js';
 import { deleteProject } from './delete.js';
+import { firstModal } from './modal2.js';
 
 /*********Display the modal window when clicking the 'edit' button**********/
 
@@ -93,6 +94,10 @@ const closeModal = function (event) {
     modal = null;
   };
   modal.addEventListener('animationend', hideModal);
+
+  window.setTimeout(function () {
+    firstModal();
+  }, 500);
 };
 
 // function to prevent from closing modal box when clicking on it
