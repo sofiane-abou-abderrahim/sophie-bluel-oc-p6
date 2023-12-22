@@ -216,3 +216,47 @@ function previewFile(event) {
  * @returns {void}
  */
 inputFile.addEventListener('change', previewFile);
+
+/**
+ * Adjusts the styling of the confirmation button based on form input conditions.
+ * If the title, category, and selected file meet the criteria, the button turns green and becomes clickable.
+ * Otherwise, the button is disabled and styled in a default state.
+ *
+ * @function
+ * @returns {void}
+ */
+function switchConfirmBtnStyles() {
+  if (
+    inputTitle.value !== '' &&
+    categorySelect.value !== 'default' &&
+    inputFile.files.length > 0
+  ) {
+    confirmBtn.style.background = '#1D6154';
+    confirmBtn.disabled = false;
+    confirmBtn.style.cursor = 'pointer';
+  } else {
+    confirmBtn.disabled = true;
+    confirmBtn.style.background = '#A7A7A7';
+    confirmBtn.style.cursor = 'auto';
+  }
+}
+
+/**
+ * Attach event listeners to form elements for dynamic updates.
+ * These listeners trigger the 'switchConfirmBtnStyles' function when there is input in relevant form fields.
+ *
+ * @event
+ * @type {EventListener}
+ * @listens input
+ */
+if (inputTitle !== null) {
+  /**
+   * Event listeners for input changes in the title field, for input changes in the category dropdown & for input changes in the file input
+   *
+   * @event
+   * @type {EventListener}
+   */
+  inputTitle.addEventListener('input', switchConfirmBtnStyles);
+  categorySelect.addEventListener('input', switchConfirmBtnStyles);
+  inputFile.addEventListener('input', switchConfirmBtnStyles);
+}
